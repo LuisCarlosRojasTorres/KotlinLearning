@@ -180,6 +180,17 @@ Text(
 
 - Para establecer la posición de los elementos secundarios dentro de un `Row`, configura los argumentos `horizontalArrangement` y `verticalAlignment`. Para una `Column`, configura los argumentos `verticalArrangement` y `horizontalAlignment`.
 
+#### Padding
+- Es el espacio entre el margen de un elemento y su contenido.
+``` kt
+Modifier.padding(
+    start = 16.dp,
+    top = 16.dp,
+    end = 16.dp,
+    bottom = 16.dp
+)
+```
+
 ### Traduccion
 - Una string codificada es una que se escribe directamente en el código de tu app. Las strings codificadas hacen que sea más difícil traducir tu app a otros idiomas y dificultan la reutilización de una string en diferentes lugares de la app. Puedes extraer strings en un archivo de recursos para resolver estos problemas. En lugar de codificar strings en tu código, colócalas en un archivo, asígnales un nombre a los recursos de strings y usa los nombres cuando desees usar las strings. El nombre seguirá siendo el mismo, incluso si cambias la string o la traduces a otro idioma.
 - Selecciona un string 
@@ -187,5 +198,14 @@ Text(
 - click em `Extract string resource`
 - Android Studio abrirá el diálogo Extract Resource. En él, podrás personalizar cómo se llamará tu recurso de strings y algunos detalles sobre cómo almacenarlo. En el campo Resource name, introduce el nombre que le asignarás a la string. En el campo Resource Value, se introduce la string real.
   - Los recursos de strings deben tener nombres en minúscula y, si hay más de una palabra, estas deben estar separadas por un guión bajo. Deja las otras opciones de configuración con sus valores predeterminados.
-- En el panel Project, abre el archivo strings.xml de la ruta app > res > values > strings.xml 
+- En el panel Project, abre el archivo `strings.xml` de la ruta `app > res > values > strings.xml` 
   - El archivo strings.xml tiene una lista de cadenas que el usuario verá en la app. Ten en cuenta que el nombre de tu app también es un recurso de cadenas. Si colocas todas las strings en un solo lugar, podrás traducir de manera sencilla todo el texto de tu app y volver a usar más fácilmente una string en diferentes partes de tu app.
+
+
+``` kt
+// String antes de adicionar ao strings.xml file
+GreetingImage(message= "Happy Birthday Rufo", from="from Rufa", modifier = Modifier.padding(8.dp))
+// String substituido 
+GreetingImage(message= stringResource(R.string.happy_birthday_rufo), from="from Rufa", modifier = Modifier.padding(8.dp))
+
+```
