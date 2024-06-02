@@ -140,3 +140,52 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
     }
 }
 ```
+### Recursos
+- el directorio res/ contiene todos los recursos de los subdirectorios, que incluyen un directorio drawable/ para un recurso de imagen, un directorio mipmap/ para los íconos de selector y un directorio values/ para recursos de strings.
+- Jetpack Compose puede acceder a los recursos definidos en tu proyecto de Android. Se puede acceder a los recursos con los ID de recursos que se generan en la clase `R` de tu proyecto.
+  - Una clase `R` es una clase que Android genera automáticamente y que contiene los ID de todos los recursos en el proyecto. En la mayoría de los casos, el ID del recurso es el mismo que el nombre del archivo e.g. `R.drawable.dummyResourceID`
+- Un ejemplo: La función painterResource() carga un recurso de imagen de elemento de diseño y toma el ID de recurso (en este caso, R.drawable.androidparty) como argumento.
+``` kt
+@Composable
+fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
+   val image = painterResource(id = R.drawable.androidparty)
+   Image(
+    painter = image
+    contentDescription = null
+   )
+}
+```
+- el diseño `Box` para apilar elementos uno sobre el otro. El diseño Box también te permite configurar la alineación específica de los elementos que contiene.
+- Para ajustar a imagem mantendo a escala se utiliza 
+``` kt
+Image(
+    painter = image,
+    contentDescription = null,
+    contentScale = ContentScale.Crop
+)
+```
+
+### Modificadores
+- Los modificadores se usan para decorar o agregar comportamiento a los elementos de IU de Jetpack Compose. Por ejemplo, puedes agregar fondos, padding o comportamiento a filas, texto o botones. Para configurarlos, un elemento componible o un diseño debe aceptar un modificador como parámetro.
+- Por ejemplo, este elemento Text componible tiene un argumento Modifier que cambia el color de fondo a verde.
+
+``` kt
+// Example
+Text(
+    text = "Hello, World!",
+    // Solid element background color
+    modifier = Modifier.background(color = Color.Green)
+)
+```
+
+- Para establecer la posición de los elementos secundarios dentro de un `Row`, configura los argumentos `horizontalArrangement` y `verticalAlignment`. Para una `Column`, configura los argumentos `verticalArrangement` y `horizontalAlignment`.
+
+### Traduccion
+- Una string codificada es una que se escribe directamente en el código de tu app. Las strings codificadas hacen que sea más difícil traducir tu app a otros idiomas y dificultan la reutilización de una string en diferentes lugares de la app. Puedes extraer strings en un archivo de recursos para resolver estos problemas. En lugar de codificar strings en tu código, colócalas en un archivo, asígnales un nombre a los recursos de strings y usa los nombres cuando desees usar las strings. El nombre seguirá siendo el mismo, incluso si cambias la string o la traduces a otro idioma.
+- Selecciona un string 
+- Da click na lampada que aparece ao lado
+- click em `Extract string resource`
+- Android Studio abrirá el diálogo Extract Resource. En él, podrás personalizar cómo se llamará tu recurso de strings y algunos detalles sobre cómo almacenarlo. En el campo Resource name, introduce el nombre que le asignarás a la string. En el campo Resource Value, se introduce la string real.
+  - Los recursos de strings deben tener nombres en minúscula y, si hay más de una palabra, estas deben estar separadas por un guión bajo. Deja las otras opciones de configuración con sus valores predeterminados.
+- En el panel Project, abre el archivo strings.xml de la ruta app > res > values > strings.xml 
+  - El archivo strings.xml tiene una lista de cadenas que el usuario verá en la app. Ten en cuenta que el nombre de tu app también es un recurso de cadenas. Si colocas todas las strings en un solo lugar, podrás traducir de manera sencilla todo el texto de tu app y volver a usar más fácilmente una string en diferentes partes de tu app.
