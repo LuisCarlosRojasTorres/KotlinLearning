@@ -49,3 +49,35 @@ fun main ()
 
 }
 ```
+
+## Constructor
+- `init`: método ou métodos executados em ordem ao longo da classe. Chamado depois que o constructor foi executado.
+
+``` kt
+class User constructor(name : String = "Rufo", sobrenome : String = "Von Rufinstein"){
+   var nome : String = ""
+   var sobrenome : String = ""
+
+   init{
+      this.nome = name
+      this.sobrenome = sobrenome
+      println("Objeto Inicializado")
+   }
+
+   fun dummy(){
+      println("Sou $nome $sobrenome")
+   }
+}
+
+fun main ()
+{
+   var user = User()  
+   user.dummy()  
+}
+```
+
+Output:
+```
+Objeto Inicializado
+Sou Rufo Von Rufinstein
+```
