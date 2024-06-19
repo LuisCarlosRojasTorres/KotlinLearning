@@ -1,24 +1,17 @@
 
-class User constructor(name : String = "Rufo", sobrenome : String = "Von Rufinstein"){
-   var nome : String = ""
-   var sobrenome : String = ""
-
+class User constructor(var name : String = "Rufo", var sobrenome : String = "Von Rufinstein"){
+   
    init{
-      this.nome = name
-      this.sobrenome = sobrenome
       println("Objeto Inicializado")
    }
 
    fun dummy(){
-      println("Sou $nome $sobrenome")
+      println("Sou $name $sobrenome")
    }
 }
 
 fun main ()
 {
-   var user = User()
-   
-   user.dummy()
-   
-
+   var user = User()   
+   user.dummy()  
 }

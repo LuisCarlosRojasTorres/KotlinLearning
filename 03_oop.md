@@ -52,7 +52,7 @@ fun main ()
 
 ## Constructor
 - `init`: método ou métodos executados em ordem ao longo da classe. Chamado depois que o constructor foi executado.
-
+- se nao tiver modificadores de accesso nao precisa a palavra `constructor`
 ``` kt
 class User constructor(name : String = "Rufo", sobrenome : String = "Von Rufinstein"){
    var nome : String = ""
@@ -80,4 +80,25 @@ Output:
 ```
 Objeto Inicializado
 Sou Rufo Von Rufinstein
+```
+
+A forma mais `kotlin` é definir as variaveis no construtor:
+
+``` kt
+class User constructor(var name : String = "Rufo", var sobrenome : String = "Von Rufinstein"){
+   
+   init{
+      println("Objeto Inicializado")
+   }
+
+   fun dummy(){
+      println("Sou $name $sobrenome")
+   }
+}
+
+fun main ()
+{
+   var user = User()   
+   user.dummy()  
+}
 ```
