@@ -45,4 +45,10 @@ fun f2(fname: String, age: Int): String {
    var ans : String = fname + " is " + age.toString()
    return (ans)
 }
+
+//Returning values: using defult values
+fun f3(fname: String = "rufo", age: Int = 10): String {
+   var ans : String = fname + " is " + age.toString()
+   return (ans)
+}
 ```
