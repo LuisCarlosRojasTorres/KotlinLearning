@@ -102,3 +102,29 @@ fun main ()
    user.dummy()  
 }
 ```
+
+- Um construtor secundario pode fazer referencia ao primario
+
+``` kt
+class User (var name : String = "Rufo", var sobrenome : String = "Von Rufinstein"){
+   
+   init{
+      println("Objeto Inicializado")
+   }
+
+   fun dummy(){
+      println("Sou $name $sobrenome")
+   }
+
+   // A ref ao construtor primario é atraves do this()
+   constructor(name: String) : this(name, "Doe"){
+      println ("Contrutor Secundario")
+   }
+}
+
+fun main ()
+{
+   var user = User("Lobo")   
+   user.dummy()  
+}
+```

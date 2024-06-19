@@ -1,5 +1,5 @@
 
-class User constructor(var name : String = "Rufo", var sobrenome : String = "Von Rufinstein"){
+class User (var name : String = "Rufo", var sobrenome : String = "Von Rufinstein"){
    
    init{
       println("Objeto Inicializado")
@@ -8,10 +8,14 @@ class User constructor(var name : String = "Rufo", var sobrenome : String = "Von
    fun dummy(){
       println("Sou $name $sobrenome")
    }
+
+   constructor(name: String) : this(name, "Doe"){
+      println ("Contrutor Secundario")
+   }
 }
 
 fun main ()
 {
-   var user = User()   
+   var user = User("Lobo")   
    user.dummy()  
 }
