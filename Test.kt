@@ -1,22 +1,19 @@
 
-class Player {
-   var kart = ""
-   var pneu = ""
-
-   fun acelerar(aceleracao : Int = 0){
-      println("aceleraration: $aceleracao")
+class User {
+   fun login(email: String, senha: String){
+      println("Logado com email: $email e senha:'$senha'")
    }
+   fun login(email: String){
+      println("Logado com email: $email e senha default '1234'")
+   }
+
 }
 
 fun main ()
 {
-   var player = Player()
+   var user = User()
    
-   player.kart = "Novo"
-   player.pneu = "Usado"
-   player.acelerar()
-   player.acelerar(5)
-   player.acelerar(aceleracao = 4)
-
+   user.login("rufo@gmail.com")
+   user.login("rufo@gmail.com","ruforufa")
 
 }
