@@ -27,7 +27,7 @@ fun main ()
 ## Sobrecarga de métodos
 - Polimorfismo: Mesmo método representa comportamentos diferentes:
   - Sobrecarga: mesmo método diferentes parâmetros 
-  - Sobreposição:
+  - Sobreposição: com herança
 
 ``` kt
 class User {
@@ -133,4 +133,52 @@ fun main ()
 Objeto Inicializado
 Contrutor Secundario
 Sou Lobo Doe
+```
+
+### Heranca
+- Seja o exemplo:
+  - Animal: props (Cor, tamanho, Peso) Metodos (Correr, Dormir)
+  - Dog: props (Cor, tamanho, Peso) Metodos (Correr, Dormir, **Morder**, **Talk**)
+  - Bird: props (Cor, tamanho, Peso) Metodos (Correr, Dormir, **Voar**, **Talk**)
+  
+``` kt
+// open is required to be a superclass otherwise is final
+open class Animal (var color : String = "Red", var size : String = "P"){
+   //open is required to be override otherwise is final
+   open fun Walk()
+   {
+      println("Walk walk walk!")
+   }
+
+   open fun Sleep()
+   {
+      println("Zzzz zzzz zzzz!")
+   }
+}
+
+class Dog: Animal() {
+   
+   override fun Walk()
+   {
+      super.Walk()
+      println("Lobo walk walk!")
+   }
+   
+}
+
+fun main ()
+{
+   var user = Dog()   
+   user.Walk()  
+   user.Sleep()
+   println(user.color)
+}
+```
+
+- Output
+``` 
+Walk walk walk!
+Lobo walk walk!
+Zzzz zzzz zzzz!
+Red
 ```

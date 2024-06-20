@@ -1,21 +1,31 @@
 
-class User (var name : String = "Rufo", var sobrenome : String = "Von Rufinstein"){
+open class Animal (var color : String = "Red", var size : String = "P"){
    
-   init{
-      println("Objeto Inicializado")
+   open fun Walk()
+   {
+      println("Walk walk walk!")
    }
 
-   fun dummy(){
-      println("Sou $name $sobrenome")
+   open fun Sleep()
+   {
+      println("Zzzz zzzz zzzz!")
    }
+}
 
-   constructor(name: String) : this(name, "Doe"){
-      println ("Contrutor Secundario")
+class Dog: Animal() {
+   
+   override fun Walk()
+   {
+      super.Walk()
+      println("Lobo walk walk!")
    }
+   
 }
 
 fun main ()
 {
-   var user = User("Lobo")   
-   user.dummy()  
+   var user = Dog()   
+   user.Walk()  
+   user.Sleep()
+   println(user.color)
 }
