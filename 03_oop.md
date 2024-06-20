@@ -128,3 +128,9 @@ fun main ()
    user.dummy()  
 }
 ```
+- Output
+``` kt
+Objeto Inicializado
+Contrutor Secundario
+Sou Lobo Doe
+```
