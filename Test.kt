@@ -14,6 +14,14 @@ open class Animal (var color : String = "Red", var size : String = "P"){
 
 class Dog: Animal() {
    
+   companion object {
+      const val DIMENSION="2D"
+
+      fun print_DIMENSION()
+      {
+         println("DIMESION: $DIMENSION")
+      }
+   }
    override fun Walk()
    {
       super.Walk()
@@ -24,8 +32,6 @@ class Dog: Animal() {
 
 fun main ()
 {
-   var user = Dog()   
-   user.Walk()  
-   user.Sleep()
-   println(user.color)
+   Dog.print_DIMENSION()
+   
 }
