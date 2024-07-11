@@ -229,3 +229,28 @@ fun main ()
 ``` 
 DIMESION: 2D
 ```
+
+## LateInit
+- As variaveis declaradas como `nonnullable` de uma clase deven inicializadas no construtor.
+- PORÉM as vezes são inicializadas posteriormente:
+  - a travésde Dependency Injection
+  - num método
+  - num teste, ou seja FORA DO CONSTRUTOR
+- Para tratar estes casos se utiliza `lateinit`, que permite nao definir no inicio a variavel e setar depois.
+- WARNING: Se a variavel lateinit é utilizada antes de ser setada vai dar erro de compilação
+``` kt
+class ProductStandard{
+   //nonnullable field is defined as an empty string
+   var description: String = ""
+   //nullable defined as null
+   var description1: String? = null
+
+   lateinit var description2: String   
+}
+
+fun main(){
+   val pro = ProductStandard()
+   pro.description2 = "Some dummy text"
+   println(produto.descricao)
+}
+```
