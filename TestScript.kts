@@ -1,2 +1,3 @@
-val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
-println( "Size: " + cars.size")
+val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
+
+print(sum(3,4))

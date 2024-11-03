@@ -10,6 +10,8 @@
 <!-- /vscode-markdown-toc -->
 ##  1. <a name='Callingfunctions'></a>Calling functions
 
+- The general form is `fun nameOfFunction(nameOfVar1: Type1 = defaultValue1, ...): TypeOfReturn`
+  
 ###  1.1. <a name='Withoutparameters'></a>Without parameters
 
 ``` kt
@@ -52,3 +54,18 @@ fun f3(fname: String = "rufo", age: Int = 10): String {
    return (ans)
 }
 ```
+
+### Lambda expressions
+
+- Full version: `val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }`
+- Short version: `val sum = { x: Int, y: Int -> x + y }`
+ 
+``` kt
+val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
+print(sum(3,4)) // returns 7
+```
+
+### Anonymous function
+The lambda expression syntax above is missing one thing – the ability to specify the function's return type. 
+
+- For the lambda example: `fun(x: Int, y: Int): Int = x + y`
