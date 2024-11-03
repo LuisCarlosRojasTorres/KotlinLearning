@@ -229,6 +229,38 @@ fun main ()
 ``` 
 DIMESION: 2D
 ```
+## Enum
+
+``` kt
+enum class StatusProcess {
+ESTADO_1,
+ESTADO_2,
+ESTADO_N
+}
+
+class DummyProcess(var status: StatusProcess = StatusProcess.ESTADO_1)
+{
+//...
+}
+
+fun main()
+{
+	val process = DummyProcess()
+	println(process.status)
+	process.status = StatusProcess.ESTADO_2
+    println(process.status)
+    process.status = StatusProcess.ESTADO_N
+    println(process.status)    
+}
+```
+- Output
+
+```
+ESTADO_1
+ESTADO_2
+ESTADO_N
+```
+
 
 ## LateInit
 - As variaveis declaradas como `nonnullable` de uma clase deven inicializadas no construtor.
