@@ -1,5 +1,18 @@
+<!-- vscode-markdown-toc -->
+* 1. [Classes](#Classes)
+	* 1.1. [Sobrecarga de métodos](#Sobrecargademtodos)
+	* 1.2. [Constructor](#Constructor)
+* 2. [Heranca](#Heranca)
+* 3. [Companion object](#Companionobject)
+* 4. [Enum](#Enum)
+* 5. [LateInit](#LateInit)
 
-## Classes
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+##  1. <a name='Classes'></a>Classes
 
 ``` kt
 class Player {
@@ -24,7 +37,7 @@ fun main ()
 }
 ```
 
-## Sobrecarga de métodos
+###  1.1. <a name='Sobrecargademtodos'></a>Sobrecarga de métodos
 - Polimorfismo: Mesmo método representa comportamentos diferentes:
   - Sobrecarga: mesmo método diferentes parâmetros 
   - Sobreposição: com herança
@@ -50,7 +63,7 @@ fun main ()
 }
 ```
 
-## Constructor
+###  1.2. <a name='Constructor'></a>Constructor
 - `init`: método ou métodos executados em ordem ao longo da classe. Chamado depois que o constructor foi executado.
 - se nao tiver modificadores de accesso nao precisa a palavra `constructor`
 ``` kt
@@ -135,14 +148,21 @@ Contrutor Secundario
 Sou Lobo Doe
 ```
 
-### Heranca
+##  2. <a name='Heranca'></a>Heranca
+- `open class BaseClass (var1: Type1)`: Superclass shall be `open`
+- `class subClass(var1: Type1) : BaseClass(var1)`: baseclass is placed after `:`
+   - If the derived class has a primary constructor, the base class can (and must) be initialized in that primary constructor according to its parameters.
+- The `open` modifier is required for baseclass methods than can be redefined in subclass.
+  - The `override` modifier is required for the subclass.
+  - Even properties can be override
+
 - Seja o exemplo:
   - Animal: props (Cor, tamanho, Peso) Metodos (Correr, Dormir)
-  - Dog: props (Cor, tamanho, Peso) Metodos (Correr, Dormir, **Morder**, **Talk**)
-  - Bird: props (Cor, tamanho, Peso) Metodos (Correr, Dormir, **Voar**, **Talk**)
+    - Dog: props (Cor, tamanho, Peso) Metodos (Correr, Dormir, **Morder**, **Talk**)
+    - Bird: props (Cor, tamanho, Peso) Metodos (Correr, Dormir, **Voar**, **Talk**)
   
 ``` kt
-// open is required to be a superclass otherwise is final
+// open is required to be a superclass, (by default all classes are final) 
 open class Animal (var color : String = "Red", var size : String = "P"){
    //open is required to be override otherwise is final
    open fun Walk()
@@ -183,7 +203,7 @@ Zzzz zzzz zzzz!
 Red
 ```
 
-## Companion object
+##  3. <a name='Companionobject'></a>Companion object
 - Similar as funções estaticas 
 - Se pueden combinar con herencia:
 
@@ -229,7 +249,7 @@ fun main ()
 ``` 
 DIMESION: 2D
 ```
-## Enum
+##  4. <a name='Enum'></a>Enum
 
 ``` kt
 enum class StatusProcess {
@@ -262,7 +282,7 @@ ESTADO_N
 ```
 
 
-## LateInit
+##  5. <a name='LateInit'></a>LateInit
 - As variaveis declaradas como `nonnullable` de uma clase deven inicializadas no construtor.
 - PORÉM as vezes são inicializadas posteriormente:
   - a travésde Dependency Injection
